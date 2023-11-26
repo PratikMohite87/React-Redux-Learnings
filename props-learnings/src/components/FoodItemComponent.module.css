@@ -1,0 +1,13 @@
+/* When we only create a .css file in that case there can be multiple css files in project 
+Multiple css file can have multiple class id defined under it.
+Now in this case there can be unwanted scenarios like under multiple css files we can have same class names or ids, this will create an unwanted behaviour in our application
+
+So, solution for this is CSS Module.
+Main feature of css module is that styles written for class and ids under it, its scope remains confined to that particular component only. (this is done by react by appending unique string at the end of class name or id internally.) 
+
+CSS Module creation -> Create a file with name ComponentName.module.css
+*/
+
+.item-text-color {
+  color: brown;
+}
