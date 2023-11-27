@@ -1,4 +1,5 @@
 import "./App.css";
+import Container from "./components/Container";
 import ErrorMessageComponent from "./components/ErrorMessageComponent";
 import FoodItemsComponent from "./components/FoodItemsComponent";
 
@@ -11,9 +12,17 @@ function App() {
 
   return (
     <>
-      <h1>Food Item List</h1>
-      <ErrorMessageComponent foodItemsList={foodItems}></ErrorMessageComponent>
-      <FoodItemsComponent foodItemsList={foodItems}></FoodItemsComponent>
+      <Container>
+        <h1>Food Item List</h1>
+        <ErrorMessageComponent
+          foodItemsList={foodItems}
+        ></ErrorMessageComponent>
+        <FoodItemsComponent foodItemsList={foodItems}></FoodItemsComponent>
+      </Container>
+
+      <Container>
+        <h3>Second data</h3>
+      </Container>
     </>
   );
 
