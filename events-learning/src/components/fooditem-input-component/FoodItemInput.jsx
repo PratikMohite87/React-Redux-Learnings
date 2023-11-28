@@ -1,12 +1,8 @@
-const FoodItemInput = () => {
+const FoodItemInput = (props) => {
   let newFoodItem;
 
   const inputOnChangeHandler = (value) => {
     newFoodItem = value;
-  };
-
-  const onClickHandler = () => {
-    console.log(newFoodItem + " Selected");
   };
 
   return (
@@ -19,13 +15,14 @@ const FoodItemInput = () => {
         aria-describedby="button-addon2"
         onChange={(event) => inputOnChangeHandler(event.target.value)}
       />
+      {/* Here we are attaching the function passed by the parent component(i.e onAddClick), so that we will pass value which is clicked in child component into parent component */}
       <button
         className="btn btn-outline-secondary"
         type="button"
         id="button-addon2"
-        onClick={() => onClickHandler()}
+        onClick={() => props.onAddClick(newFoodItem)}
       >
-        Buy
+        Add
       </button>
     </div>
   );

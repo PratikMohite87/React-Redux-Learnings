@@ -6,6 +6,14 @@ import Heading from "./components/heading-component/Heading";
 function App() {
   let foodItemList = ["Spinach", "Brinjal", "Avacado"];
 
+  // This function will be passed to child component so that we can get the food item which is clicked in child component into parent component.
+  // For passing value upward (child to parent)
+  const addFoodItem = (itemName) => {
+    console.log(itemName + " entered");
+    foodItemList.push(itemName);
+    console.log(itemName + " exit");
+  };
+
   return (
     <>
       <div className="container">
@@ -16,7 +24,8 @@ function App() {
               <Heading></Heading>
             </div>
             <div className="row text-center">
-              <FoodItemInput></FoodItemInput>
+              {/* Attaching addFoodItem in prop as onAddClick method */}
+              <FoodItemInput onAddClick={addFoodItem}></FoodItemInput>
             </div>
             <div className="row text-center">
               <ItemListContainer itemList={foodItemList}></ItemListContainer>
