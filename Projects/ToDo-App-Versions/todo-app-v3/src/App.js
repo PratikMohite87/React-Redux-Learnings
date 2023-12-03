@@ -19,15 +19,27 @@ function App() {
   const [toDoItemsList, setToDoItemsList] = useState(initialToDoItemsList);
 
   const handleAddNewToDo = (itemName, itemDueDate) => {
-    setToDoItemsList([
-      ...toDoItemsList,
+    // Now here there are the chances that toDoItemsList value may be out dated becoz of async operation, which can lead to unwanted behaviour
+    // So let set function only give its states current value.
+
+    // setToDoItemsList([
+    //   ...toDoItemsList,
+    //   { toDoName: itemName, toDoDate: itemDueDate },
+    // ]);
+
+    setToDoItemsList((curVal) => [
+      ...curVal,
       { toDoName: itemName, toDoDate: itemDueDate },
     ]);
   };
 
   const handleDeleteToDoItem = (itemName) => {
-    setToDoItemsList(
-      toDoItemsList.filter((item) => item.toDoName !== itemName)
+    // setToDoItemsList(
+    //   toDoItemsList.filter((item) => item.toDoName !== itemName)
+    // );
+
+    setToDoItemsList((curVal) =>
+      curVal.filter((item) => item.toDoName !== itemName)
     );
   };
 
