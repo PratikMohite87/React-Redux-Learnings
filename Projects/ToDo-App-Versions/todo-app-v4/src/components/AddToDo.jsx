@@ -1,6 +1,9 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { ToDoItemsListContext } from "../store/ToDoItemsListContext";
 
-function AddToDo({ onNewItem }) {
+function AddToDo() {
+  const { onNewItem } = useContext(ToDoItemsListContext);
+
   const toDoName = useRef();
   const toDoDate = useRef();
 
