@@ -1,11 +1,11 @@
 import SecondChild from "./SecondChild";
 
-const FirstChild = ({ name }) => {
+const FirstChild = () => {
   return (
     <div style={{ border: "3px solid orange" }}>
       <h3>First Child</h3>
       <p></p>
-      <SecondChild name={name}></SecondChild>
+      <SecondChild></SecondChild>
     </div>
   );
 };
